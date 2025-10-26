@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Launch a t3.micro EC2 instance in a specific subnet and security group
+
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.micro
+      ImageId: ami-0a716d3f3b16d290c
+      KeyName: lin.ppk           # This should match your key pair name (not the .ppk file)
+      SubnetId: subnet-0b0e693c02f267f40
+      # Example of an optional property
+      Tags:
+        - Key: Name
+          Value: MyTestInstance
